@@ -233,7 +233,7 @@ right:: next_window()           ; next-buffer
 ;; -------------
 ;; C-M- bindings
 ;; -------------
-#If !dummy && !ignored_frame() && !cx
+#If !dummy && !ignored_frame() && !cx && !(GetKeyState("LControl") && GetKeyState("RAlt"))
 
 !^`:: self_insert_command()
 !^1:: digit_argument()
