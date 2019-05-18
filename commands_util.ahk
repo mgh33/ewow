@@ -42,7 +42,12 @@ command_simple(str, changes, repeatable)
             %str%()
     Else
         Loop, % (arg && repeatable) ? arg : 1
-            send(str)
+        {   
+			If str = {Numlock}
+				handle_numlock()
+			Else
+				send(str)
+		}
     If changes
         run_hooks("after_change_hook")
     run_hooks("post_command_hook")
@@ -94,4 +99,17 @@ command_mark(str)
     send(str)
     set_mark()
     run_hooks("post_command_hook")
+}
+
+handle_numlock()
+{ 
+	If GetKeyState("Numlock","T") {
+		ToolTip "Numlock Off"
+		SetNumLockState Off
+	}
+	Else{
+		ToolTip "Numlock On"
+		SetNumLockState On
+	}
+	
 }
