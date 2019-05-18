@@ -484,7 +484,7 @@ right:: next_window()           ; next-buffer
 ^d:: delete_char()
 ^f:: forward_char()
 ^g:: keyboard_quit()
-^h:: help()
+^h:: delete_backward_char() ;; help()
 ^j:: newline()                  ; newline-and-indent
 ^k:: kill_line()
 ^l:: self_insert_command()
@@ -699,7 +699,7 @@ right:: forward_char()
 insert:: overwrite_mode()
 
 scrolllock:: self_send_command()
-capslock:: self_send_command()
+capslock:: command_simple("{Escape}", 0, 1)
 numlock:: self_send_command()
 appskey:: self_send_command()
 printscreen:: self_send_command()
@@ -716,8 +716,10 @@ sleep:: self_send_command()
 
 f1:: help()
 f2:: self_send_command()
-f3:: kmacro_start_macro()       ; kmacro-start-macro-or-insert-counter
-f4:: kmacro_end_or_call_macro()
+#f3:: kmacro_start_macro()       ; kmacro-start-macro-or-insert-counter
+#f4:: kmacro_end_or_call_macro()
+f3:: self_send_command()       ; kmacro-start-macro-or-insert-counter
+f4:: self_send_command()
 f5:: self_send_command()
 f6:: self_send_command()
 f7:: self_send_command()
