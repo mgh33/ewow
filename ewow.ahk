@@ -3,3 +3,4 @@
 #Include commands.ahk
 #Include init.ahk
 #Include keybinds.ahk
+#Include userActions.ahk

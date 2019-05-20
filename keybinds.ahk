@@ -46,7 +46,7 @@ alt up:: alttab_end()
 ^s:: save_buffer()
 ^d:: dired()                    ; list-directory
 ^f:: find_file()
-^g:: ignore()
+^g:: goto_hpalm()
 ^h:: ignore()
 ^j:: ignore()
 ^k:: ignore()
@@ -370,7 +370,7 @@ right:: next_window()           ; next-buffer
 !s:: self_insert_command()
 !d:: kill_word()
 !f:: forward_word()
-!g:: goto_line()                ; (prefix)
+!g:: self_insert_command() ;; goto_line()                ; (prefix)
 !h:: self_insert_command()
 !j:: indent_new_comment_line()
 !k:: self_insert_command()
@@ -716,8 +716,8 @@ sleep:: self_send_command()
 
 f1:: help()
 f2:: self_send_command()
-#f3:: kmacro_start_macro()       ; kmacro-start-macro-or-insert-counter
-#f4:: kmacro_end_or_call_macro()
+;; f3:: kmacro_start_macro()       ; kmacro-start-macro-or-insert-counter
+;; f4:: kmacro_end_or_call_macro()
 f3:: self_send_command()       ; kmacro-start-macro-or-insert-counter
 f4:: self_send_command()
 f5:: self_send_command()
