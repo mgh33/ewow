@@ -1,5 +1,6 @@
 goto_hpalm()
 { 
+    run_hooks("pre_command_hook")
 	clipboard = 
 	Send, ^c
 	ClipWait, 2
@@ -11,5 +12,5 @@ goto_hpalm()
 	Send, !s
 	
 ;;	msgBox done
-
+	run_hooks("post_command_hook")
 }
