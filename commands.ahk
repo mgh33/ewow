@@ -101,14 +101,18 @@ mouse_event_command()
         key = X2
     Else
         Return
-
+	
+	
     If res3 =
         updn = D
     Else
         updn = U
-
+	
+	
     key = %res1%{Click, %key%, %x%, %y%, 1, %updn%}
     command_simple(key, 0, 1)
+;;	ToolTip, %key%
+;;	toolTip, res: %mist%: %mist1% :a : %updn%
 }
 
 ;; digit argument

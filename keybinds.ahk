@@ -30,7 +30,7 @@ alt up:: alttab_end()
 ^0:: ignore()                   ; * text-scale-adjust
 ^-:: ignore()                   ; * text-scale-adjust
 ^=:: ignore()                   ; * text-scale-adjust
-^q:: ignore()
+^q:: search_inside()
 ^w:: write_file()
 ^e:: ignore()
 ^r:: find_file()                ; find-file-read-only
@@ -316,7 +316,7 @@ right:: next_window()           ; next-buffer
 !+a:: self_insert_command()
 !+s:: self_insert_command()
 !+d:: self_insert_command()
-!+f:: self_insert_command()
+!+f:: inc_indent()
 !+g:: self_insert_command()
 !+h:: self_insert_command()
 !+j:: self_insert_command()
@@ -329,7 +329,7 @@ right:: next_window()           ; next-buffer
 !+x:: self_insert_command()
 !+c:: self_insert_command()
 !+v:: self_insert_command()
-!+b:: self_insert_command()
+!+b:: dec_indent()
 !+n:: self_insert_command()
 !+m:: self_insert_command()
 !+,:: beginning_of_buffer()
@@ -446,7 +446,7 @@ right:: next_window()           ; next-buffer
 ^+,:: self_insert_command()
 ^+.:: self_insert_command()
 ^+/:: self_insert_command()
-
+^+space:: executeSpace()
 ^+bs:: kill_whole_line()
 
 ;; -----------

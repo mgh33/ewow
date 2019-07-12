@@ -37,17 +37,38 @@
 command_simple(str, changes, repeatable)
 { Global
     run_hooks("pre_command_hook")
-    If isFunc(str)
+    If isFunc(str){
         Loop, % (arg && repeatable) ? arg : 1
             %str%()
-    Else
+			}
+    Else{
+		;; ToolTip, Test2: %str%
         Loop, % (arg && repeatable) ? arg : 1
         {   
 			If str = {Numlock}
 				handle_numlock()
-			Else
-				send(str)
+			Else{
+				Send(str)
+				;; if InStr(str, "Click") > 0 {
+					;; tooltip, %str%
+					;; SendInput %str%
+					;; MouseGetPos, , , id, ControlHwnd,2
+					;; WinGetTitle, title, ahk_id %id%
+					;; WinGetClass, class, ahk_id %id%
+					;; ToolTip, ahk_id %id%`nahk_class %class%`n%title%`nControl: %ControlHwnd%
+					if InStr(str, ", U") > 0{
+						;; SendMessage, 0x215, 0, 0, , ahk_id %ControlHwnd%
+						;; WinGetTitle, mist,  A
+						;; WinGet, mist2, ControlListHwnd,  A						
+						;; ToolTip, ahk_id %id%`nahk_class %class%`n%title%`nControl: %ControlHwnd%
+					
+					}
+				;; ToolTip, Test3: %str%
+				;; }
+				
+			}
 		}
+	}
     If changes
         run_hooks("after_change_hook")
     run_hooks("post_command_hook")
@@ -58,7 +79,8 @@ command_simple(str, changes, repeatable)
 command_motion(str, repeatable)
 { Global
     run_hooks("pre_command_hook")
-    If mark
+	;; ToolTip, Test1: %str%
+	If mark
         str = {shift down}%str%{shift up}
     Loop, % (arg && repeatable) ? arg : 1
         send(str)
